@@ -15,17 +15,18 @@ const [sum, setSum] = useState(0);
 const [sum2, setSum2] = useState(0);
 
 useEffect(() => {
- setSum(parseInt(value1, 10) * parseInt(value3, 10) + parseInt(value2, 10) * parseInt(value4, 10)); 
- setSum2(parseInt(value1, 10) * parseInt(value5, 10) + parseInt(value2, 10) * parseInt(value6, 10));
+ setSum(parseFloat(value1) * parseFloat(value3) + parseFloat(value2) * parseFloat(value4)); 
+ setSum2(parseFloat(value1) * parseFloat(value5) + parseFloat(value2) * parseFloat(value6));
 }, [value1, value2, value3, value4, value5, value6]);
 
+let range = 0.1
 let message = ''
 let color = 'gray'
 
-if (sum == sum2){
+if (sum - sum2 < sum*range && sum2-sum < sum*range){ //Hardcoded Values sind vielleicht sinnvoller 
   message = 'Deine Werte sind im richtigen Bereich!'
   color = 'green'
-}else if (isNaN(sum)){
+}else if (isNaN(sum)|| isNaN(sum2)){
   message = "Noch keine Werte Eingetragen!"
   color = 'gray'
 }else {
@@ -50,7 +51,7 @@ if (sum == sum2){
       <input type="number" value={value5} onChange={e => setValue5(e.target.value)} />
        <Latex>$v_2^\prime$ = </Latex>
       <input type="number" value={value6} onChange={e => setValue6(e.target.value)} />
- 
+      {!isNaN(sum) && !isNaN(sum2) ? <p>{sum}  {color == 'red' ?  '≠' : '≈'} {sum2}</p>:''}
       <p style={{color: color, border: '1px solid', borderRadius: '10px'}}>{message}</p>
     </>
   )
