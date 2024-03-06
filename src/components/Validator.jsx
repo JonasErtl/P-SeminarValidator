@@ -38,7 +38,7 @@ if (sum - sum2 < range && sum2-sum < range){ //Hardcoded Values sind vielleicht 
 
   return (
     <>
-      <form action="http://localhost:5173/alt"><input type="submit" value="Inelastischer Stoß" /></form>
+      <form action="https://p-seminar-validator.netlify.app/alt"><input type="submit" value="Inelastischer Stoß" /></form>
       <p>Für die Impulserhaltung gilt:</p>
       <Latex>$m_1 \cdot v_1 + m_2 \cdot v_2 = m_1 \cdot v_1^\prime + m_2 \cdot v_2^\prime$</Latex><br></br>
       <Latex>$m_1$ = </Latex>
