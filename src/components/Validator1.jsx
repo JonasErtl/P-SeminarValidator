@@ -4,7 +4,7 @@ import Latex from "react-latex-next";
 import { useEffect } from 'react';
 
 
-function Validator() {
+function Validator1() {
 const [value1, setValue1] = useState();
 const [value2, setValue2] = useState();
 const [value3, setValue3] = useState();
@@ -38,7 +38,7 @@ if (sum - sum2 < range && sum2-sum < range){ //Hardcoded Values sind vielleicht 
 
   return (
     <>
-      <form action="http://localhost:5173/alt"><input type="submit" value="Inelastischer Stoß" /></form>
+      <form action="http://localhost:5173/"><input type="submit" value="Elastischer Stoß" /></form>
       <p>Für die Impulserhaltung gilt:</p>
       <Latex>$m_1 \cdot v_1 + m_2 \cdot v_2 = m_1 \cdot v_1^\prime + m_2 \cdot v_2^\prime$</Latex><br></br>
       <Latex>$m_1$ = </Latex>
@@ -59,4 +59,4 @@ if (sum - sum2 < range && sum2-sum < range){ //Hardcoded Values sind vielleicht 
   )
 }
 
-export default Validator
+export default Validator1
