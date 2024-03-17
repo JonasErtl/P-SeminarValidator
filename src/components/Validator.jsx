@@ -24,7 +24,7 @@ let range = 0.1
 let message = ''
 let color = 'gray'
 
-if (sum - sum2 < range && sum2-sum < range){ //Hardcoded Values sind vielleicht sinnvoller 
+if (sum - sum2 < sum*range && sum2 - sum < sum*range){ //Hardcoded Values sind vielleicht sinnvoller 
   message = 'Deine Werte sind im richtigen Bereich!'
   color = 'green'
 }else if (isNaN(sum)|| isNaN(sum2)){
@@ -42,19 +42,30 @@ if (sum - sum2 < range && sum2-sum < range){ //Hardcoded Values sind vielleicht 
       <p>Für die Impulserhaltung gilt:</p>
       <Latex>$m_1 \cdot v_1 + m_2 \cdot v_2 = m_1 \cdot v_1^\prime + m_2 \cdot v_2^\prime$</Latex><br></br>
       <Latex>$m_1$ = </Latex>
-      <input type="number" value={value1} onChange={e => setValue1(e.target.value)}/>
+      <input type="text" value={value1} onChange={e => setValue1(e.target.value.replace(',', '.'))} />
+      <Latex>$kg$</Latex>
+      <Latex> </Latex>
       <Latex>$m_2$ = </Latex>
-      <input type="number" value={value2} onChange={e => setValue2(e.target.value)} /><br></br> 
-       <Latex>$v_1$ = </Latex>
-      <input type="number" value={value3} onChange={e => setValue3(e.target.value)} />
-       <Latex>$v_2$ = </Latex>
-      <input type="number" value={value4} onChange={e => setValue4(e.target.value)} /><br></br> 
-       <Latex>$v_1^\prime$ = </Latex>
-      <input type="number" value={value5} onChange={e => setValue5(e.target.value)} />
-       <Latex>$v_2^\prime$ = </Latex>
-      <input type="number" value={value6} onChange={e => setValue6(e.target.value)} />
-      {!isNaN(sum) && !isNaN(sum2) ? <p>{sum}  {color == 'red' ?  '≠' : '≈'} {sum2}</p>:''}
-      <p style={{color: color, border: '1px solid', borderRadius: '10px'}}>{message}</p>
+      <input type="number" value={value2} onChange={e => setValue2(e.target.value.replace(',', '.'))} />
+      <Latex>$kg$</Latex>
+      <br></br>
+      <Latex>$v_1$ = </Latex>
+      <input type="number" value={value3} onChange={e => setValue3(e.target.value.replace(',', '.'))} />
+      <Latex>$\frac m s$</Latex>
+      <Latex> </Latex>
+      <Latex>$v_2$ = </Latex>
+      <input type="number" value={value4} onChange={e => setValue4(e.target.value.replace(',', '.'))} />
+      <Latex>$\frac m s$</Latex>
+      <br></br>
+      <Latex>$v_1^\prime$ = </Latex>
+      <input type="number" value={value5} onChange={e => setValue5(e.target.value.replace(',', '.'))} />
+      <Latex>$\frac m s$</Latex>
+      <Latex> </Latex>
+      <Latex>$v_2^\prime$ = </Latex>
+      <input type="number" value={value6} onChange={e => setValue6(e.target.value.replace(',', '.'))} />
+      <Latex>$\frac m s$</Latex>
+      {!isNaN(sum) && !isNaN(sum2) ? <p>{sum}  {color == 'red' ? '≠' : '≈'} {sum2}</p> : ''}
+      <p style={{ color: color, border: '1px solid', borderRadius: '10px' }}>{message}</p>
     </>
   )
 }
